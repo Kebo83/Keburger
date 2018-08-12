@@ -1,11 +1,16 @@
 
 
-<h1>Time To Eat!</h1>
+<h1>Time To Eat-Da-Burger!</h1>
+
+
+
+
 
 <main>
   <div class="container">
     <div class="row">
       <div class="col s6">
+        <h4>Burgers available to Eat!</h4>
         {{#each burgers}}
           {{#unless this.devoured}}
             <div>
@@ -17,7 +22,10 @@
         {{/each}}
       </div>
 
+
+
       <div class="col s6">
+        <h4>Burgers that have be devoured!</h4>
         {{#each burgers}}
           {{#if this.devoured}}
             <div class='burgerEaten'>
