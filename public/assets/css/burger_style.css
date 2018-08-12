@@ -1,0 +1,83 @@
+ html {
+ 	background-color:orange;
+ }
+
+ body {
+ 	width: 75%;
+	margin: auto; 
+	background-color: white;
+ }
+
+ #photo {
+ 	display: block;
+    margin: auto;
+ }
+
+ h1 {
+ 	text-align: center;
+ 	font-size: 65px;
+ 	margin: 50px;
+ }
+
+ .burgerAvailable {
+ 	font-weight: normal;
+ 	font-size: 20px;
+ 	text-align: center;
+
+ 	border-radius: 25px;
+ 	width: 100%;
+ 	margin: 10px;
+ 	padding: 10px;
+ 	background-color: green;
+ 	border: none;
+ }
+
+ .burgerAvailable:hover {
+ 	background-color: green
+ }
+
+ .burgerEaten {
+ 	font-weight: normal;
+ 	font-size: 20px;
+ 	text-align: center;
+ 	margin: 10px;
+ 	padding: 10px;
+ 	background-color: pink;
+ }
+
+ h2 {
+  	text-align: center;
+ 	/* font-family: 'Fontdiner Swanky', cursive; */
+ 	font-size: 40px;
+ 	margin: 50px;
+ }
+
+ .formContainer {
+ 	background-color: orange;
+ }
+
+ #submit {
+ 	font-weight: normal;
+ 	font-size: 20px;
+ 	text-align: center;
+ 	border-radius: 15px;
+ 	width: 50%;
+ 	margin-left: 25%;
+	margin-right: 25%;
+ 	padding: auto;
+ 	background-color: green;
+ 	border: none;
+ };
+ #name{
+	 text-align: center;
+ };
+
+
+.addBurgerButton:active {
+	background-color: orange;
+}
+
+.burgerFooter {
+	background-color: orange;
+	padding: 20px;
+}
