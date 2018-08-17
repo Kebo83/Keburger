@@ -9,38 +9,97 @@ router.get('/', function (req, res) {
     var hbsObject = {
       burgers: data
     };
-    console.log(hbsObject);
+    // console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
+
 router.post("/burgers", function(req, res) {
-  console.log("this works");
+  // console.log("this works");
   burger.insertOne([
+    
     "burger_name"
-    // , "devoured"
+
   ], [
     req.body.burger_name
-    // , req.body.devoured
 
-  ], function(result) {
+
+  ], function(data) {
     // Send back the ID of the new quote
-   
+  
     res.redirect('/');
   });
 });
 
-router.put("/burgers/:id", function(req, res) {
-  console.log("this works");
-  var condition = "id = " + req.params.id;
-
-  // console.log("devoured", condition);
-
-    burger.updateOne({
-    devoured: true
-  }, condition, function(data) {
+//PUT route to update burger devoured state.
+router.put("/burgers/updateOne", function(req, res) {
+  burger.updateOne(req.body.burger_name, function (result){
+    console.log(req.body.burger_name);
+    console.log(result);
     res.redirect('/');
-  });
+ });
 });
+  
+  
+  
+  // var condition = "id = " + req.params.id;
+
+  // console.log("condition", condition);
+
+  // burger.updateOne({
+  //   devoured: req.body.devoured
+  // }, condition, function(result) {
+  //   if (result.changedRows == 0) {
+  //     // If no rows were changed, then the ID must not exist, so 404
+  //     res.redirect('/');
+  //   } else {
+  //     res.status(200).end();
+  //   }
+  // });
+  // });
+
+
+
+
+// router.put("api/burgers/:id", function (req, res) {
+//     var id = req.params.id;
+
+//     console.log("id", id);
+
+//     burger.updateOne(id, function () {
+//         $.ajax({
+//       url: "api/burgers/" + id,
+//       method: "PUT",
+//       data: devoured
+//     }).then(function(result){
+//     });
+//         res.redirect("/");
+//     });
+// });
+// router.put("/burgers/:id", function(req, res) {
+//   console.log("this doesnt work now");
+//   console.log(req.params.id);
+//   var condition = "id = " + req.params.id;
+// console.log(res);
+//   console.log("condition", condition);
+//     burger.updateOne({
+//     devoured= true,
+//     // req.body.burger_name
+//     }, condition, function(res) {
+//     res.redirect('/');
+//   });
+// });
+  //   devoured: true
+  //   }, condition, function(result) {
+  //   if (result.changedRows == 0) {
+  //     // If no rows were changed, then the ID must not exist, so 404
+  //     console.log(req.params.id);
+  //     return res.status(404).end();
+  //   } else {
+  //     res.status(200).end();
+  //   }
+  // });
+// });
 
 // router.delete("/burgers/:id", function(req, res) {
 //   var condition = "id = " + req.params.id;
@@ -52,7 +111,7 @@ router.put("/burgers/:id", function(req, res) {
 //     } else {
 //       res.status(200).end();
 //     }
-//   });
+  // });
 // });
 
 

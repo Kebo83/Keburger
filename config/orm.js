@@ -44,7 +44,39 @@ var orm = {
       cb(result);
     });
   },
+  
   insertOne: function(table, cols, vals, cb) {
+    // console.log(table);
+    // console.log(cols);
+    // console.log(vals);
+    // console.log(cb);
+    var queryString = "INSERT INTO " + table;
+
+    queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
+    queryString += printQuestionMarks(vals.length);
+    queryString += ") ";
+
+   
+    // console.log(queryString);
+ 
+    connection.query(queryString, vals, function(err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
+  },
+
+
+    updateOne: function(table, cols ,vals, condition, cb) {
+    //    console.log(table);
+    // console.log(cols);
+    // console.log(vals);
+    // console.log(cb);
     var queryString = "INSERT INTO " + table;
 
     queryString += " (";
@@ -64,37 +96,38 @@ var orm = {
       cb(result);
     });
   },
+// objColVals
+//   updateOne: function(table, column ,value, condition, cb) {
+//     var queryString = "UPDATE " + table;
 
-  updateOne: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
+//     queryString += " SET ";
+//     queryString += objToSql(objColVals);
+//     queryString += " WHERE ";
+//     queryString += condition;
+// // var queryString ="update ?? SET ?? =? Where ?";
+// // ex: Set Column
+//     console.log(queryString);
+//     connection.query(queryString, [table], [column],[value],[condition]  function(err, result) {
+//       if (err) {
+//         throw err;
+//       }
 
-    queryString += " SET ";
-    queryString += objToSql(objColVals);
-    queryString += " WHERE ";
-    queryString += condition;
+//       cb(result);
+//     });
+//   },
+//   delete: function(table, condition, cb) {
+//     var queryString = "DELETE FROM " + table;
+//     queryString += " WHERE ";
+//     queryString += condition;
 
-    console.log(queryString);
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
+//     connection.query(queryString, function(err, result) {
+//       if (err) {
+//         throw err;
+//       }
 
-      cb(result);
-    });
-  },
-  delete: function(table, condition, cb) {
-    var queryString = "DELETE FROM " + table;
-    queryString += " WHERE ";
-    queryString += condition;
-
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-
-      cb(result);
-    });
-  }
+//       cb(result);
+//     });
+//   }
 };
 
 module.exports = orm;
