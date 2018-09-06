@@ -28,21 +28,22 @@
  	border-radius: 25px;
  	width: 90%;
  	margin: 10px;
- 	/* padding: 10px; */
  	background-color: green;
- 
  }
 
  .burgerAvailable:hover {
  	background-color: rgb(91, 241, 91)
  }
-
- .burgerEaten {
+.burgerDevoured:hover {
+ 	background-color: rgb(211, 91, 241)
+ }
+ .burgerDevoured {
  	font-weight: normal;
  	font-size: 20px;
  	text-align: center;
+	border-radius: 25px;
+ 	width: 90%;
  	margin: 10px;
- 	padding: 10px;
  	background-color: pink;
  }
  h1{
@@ -54,6 +55,9 @@
  	 margin-left:25%;
 	 margin-right:25%;
  }
+p{  text-align: center;
+ 	font-size: 18px;
+	 }
 
  .formContainer {
  	background-color: orange;
